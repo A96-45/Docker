@@ -2,7 +2,7 @@
 
 A simple web app to track student attendance. Built with Node.js, Express, and SQLite. Containerized with Docker.
 
----
+
 
 ## What it does
 
@@ -12,14 +12,11 @@ A simple web app to track student attendance. Built with Node.js, Express, and S
 - See a summary report per student
 - All data is saved in a local SQLite database
 
----
 
 ## Requirements
 
 - [Docker](https://www.docker.com/products/docker-desktop) installed on your machine
-- That's it — no Node.js required on your computer
 
----
 
 ## How to run it
 
@@ -66,7 +63,7 @@ ENV NODE_ENV=production      # Set environment to production
 CMD ["npm", "start"]         # Start the app when the container runs
 ```
 
-The reason we copy `package.json` and install dependencies *before* copying the full code is for caching — Docker won't re-run `npm install` every time you change your code, only when dependencies change.
+The reason we copy `package.json` and install dependencies *before* copying the full code is for caching  Docker won't re-run `npm install` every time you change your code, only when dependencies change.
 
 ---
 
@@ -88,7 +85,7 @@ services:
     command: npm start                              # Start the app
 ```
 
-The `volumes` line is the most important part — it links the database file on your computer to the one inside the container. This means when you stop or delete the container, **your data is not lost**.
+The `volumes` line is the most important part,  it links the database file on your computer to the one inside the container. This means when you stop or delete the container, **your data is not lost**.
 
 ---
 
